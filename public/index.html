@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Univercity Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+<body>
+    <h1>Univercity Registration Form</h1>
+
+    <p>Please Fill Out The Form Below To Register.</p>
+
+<hr>
+
+    <form action="/register" method="post">
+
+        <h2>Personal Details</h2>
+
+            <label for="tname">First Name:</label>
+            <input type="text" name="name" id="firstname" placeholder="Enter Your First Name">
+            <br><br>
+
+            <label for="surname">Last Name:</label>
+            <input type="text" name="lastname" id="surname" placeholder="Enter Your Last Name">
+            <br><br>
+
+            <label for="DOB">Date Of Birth:</label>
+            <input type="date" name="DOB" id="dob" placeholder="Enter Your Birth date Name">
+            <br><br>
+
+            <label>Gender:</label>
+            <br>
+
+
+            <input type="radio" name="gender" id="male" value="male">
+            <label for="male">Male</label>
+            <br>
+
+            <input type="radio" name="gender" id="female" value="female">
+            <label for="female">Female</label>
+            <br>
+
+            <input type="radio" name="gender" id="other" value="other">
+            <label for="othe">Other</label>
+            <br><br>
+            
+            <label for="file">Upload Your Photo:</label>
+            <input type="file" name="file" id="file">   
+            <br><hr>
+
+        <h2>Contact information</h2>    
+
+            <label for="email">Email Address:</label>
+            <input type="email" name="email" id="email" placeholder="eg:ahd@gmail.com" required>
+            <br><br>
+
+            <label for="num">Phone No:</label>
+            <input type="tel" name="phone" id="num" placeholder="Enter only Number" pattern="[0-9]{10}" maxlength="10" >
+            <br><br>
+
+            <label for="address">Mailing Address:</label>
+            <br>
+            <textarea name="address" id="address" rows="5" cols="30" placeholder="Street Address, city, state, zip code"></textarea>
+
+            <br><hr>
+
+        <h2>Academic Information</h2>   
+
+            <label for="course">Select Your Course:</label>
+            <select name="course" id="course">choose a course
+                <option value="ME">ME</option>
+                <option value="CSE">CSE</option>
+                <option value="CE">CE</option>
+            </select>
+
+            <h3>Extracurriucular Interest</h3>
+
+            <input type="checkbox" name="interest" id="sports" value="sports">
+            <label for="sports">Sports</label> 
+            <br> 
+            
+            <input type="checkbox" name="interest" id="music" value="music">
+            <label for="music">Music & Arts</label> 
+            <br>
+
+            <input type="checkbox" name="interest" id="technology" value="technology">
+            <label for="technology">Technologyclubs</label> 
+            <br>
+
+            <input type="checkbox" name="interest" id="volunteering" value="volunteering">
+            <label for="volunteering">Volunteering</label> 
+            <br><hr>
+
+            <h2>Create Your Account</h2>
+
+            <label for="password">Create a Password :</label>
+            <input type="password" name="password" id="password">
+            <br><br>
+
+            <label for="security">Security Question:</label>
+            <select name="securityQuestion" id="security">
+                <option value="teacher">What is your Favourite Teacher</option>
+                <option value="pet">What Was Your Faviourite Pet's Name</option>
+                <option value="pesrson">What is your Favourite Person</option>
+            </select>
+            <br><br>
+
+            <label for="password">Security Answer :</label>
+            <input type="text" name="securityAnswer" id="password">
+            <br><br>
+
+            <input type="checkbox" required>
+            <label for="aggreement">I Agree to The Terms and Condition</label> 
+            <br><hr>
+
+            <button type="submit">Register</button>
+            <button type="reset">Clear Form</button>
+        
+    </form>
+    
+    
+
+</table>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+
+    const form = document.getElementById("registerForm");
+
+    form.addEventListener("submit", async function(e){
+        e.preventDefault();
+
+        const student = {
+            firstName: document.getElementById("name").value,
+            lastName: document.getElementById("surname").value,
+            email: document.getElementById("email").value,
+            phone: document.getElementById("num").value,
+            course: document.getElementById("course").value,
+            gender: document.querySelector('input[name="gender"]:checked')?.value || ""
+        };
+
+        const response = await fetch("/register", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(student)
+        });
+
+        const data = await response.json();
+        alert(data.message);
+
+        form.reset();
+    });
+
+});
+</script>
+
+
+</body>
+</html>
