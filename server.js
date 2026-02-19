@@ -7,7 +7,8 @@ const path = require("path");
 const app = express();
 
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());
+app.use(express.urlencoded({ extended:true }));
 app.use(express.static(path.join(__dirname, "public")));
 
 mongoose.connect("mongodb+srv://manasiyaahmad345_db_user:sTare144faFDB0bV@cluster0.ioo5mmk.mongodb.net/universityDB")
@@ -68,6 +69,8 @@ app.get("/students", async (req, res) => {
     res.json(students);
 });
 
-app.listen(5000, () => {
-    console.log("Server running on http://localhost:5000");
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+console.log(`Server running on port ${PORT}`);
 });

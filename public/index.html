@@ -1,162 +1,280 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Univercity Registration Form</title>
-    <link rel="stylesheet" href="style.css">
 
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>University Registration Form</title>
+
+<link rel="stylesheet" href="style.css">
 
 </head>
-<body>
-    <h1>Univercity Registration Form</h1>
 
-    <p>Please Fill Out The Form Below To Register.</p>
+<body>
+
+<h1>University Registration Form</h1>
+
+<p>Please Fill Out The Form Below To Register.</p>
 
 <hr>
 
-    <form action="/register" method="post">
+<form id="registerForm">
 
-        <h2>Personal Details</h2>
+<h2>Personal Details</h2>
 
-            <label for="tname">First Name:</label>
-            <input type="text" name="name" id="firstname" placeholder="Enter Your First Name">
-            <br><br>
+<label>First Name:</label>
 
-            <label for="surname">Last Name:</label>
-            <input type="text" name="lastname" id="surname" placeholder="Enter Your Last Name">
-            <br><br>
+<input type="text"
+id="firstname"
+name="firstName"
+placeholder="Enter Your First Name"
+required>
 
-            <label for="DOB">Date Of Birth:</label>
-            <input type="date" name="DOB" id="dob" placeholder="Enter Your Birth date Name">
-            <br><br>
+<br><br>
 
-            <label>Gender:</label>
-            <br>
+<label>Last Name:</label>
+
+<input type="text"
+id="surname"
+name="lastName"
+placeholder="Enter Your Last Name"
+required>
+
+<br><br>
+
+<label>Date Of Birth:</label>
+
+<input type="date"
+id="dob"
+name="dob"
+required>
+
+<br><br>
+
+<label>Gender:</label>
+
+<br>
+
+<input type="radio"
+name="gender"
+value="male">
+<br>
+
+<input type="radio"
+name="gender"
+value="female"> 
 
 
-            <input type="radio" name="gender" id="male" value="male">
-            <label for="male">Male</label>
-            <br>
+<br>
 
-            <input type="radio" name="gender" id="female" value="female">
-            <label for="female">Female</label>
-            <br>
+<input type="radio"
+name="gender"
+value="other"> Other
+<br><br>
 
-            <input type="radio" name="gender" id="other" value="other">
-            <label for="othe">Other</label>
-            <br><br>
-            
-            <label for="file">Upload Your Photo:</label>
-            <input type="file" name="file" id="file">   
-            <br><hr>
+<label>Upload Photo:</label>
 
-        <h2>Contact information</h2>    
+<input type="file"
+name="photo">
 
-            <label for="email">Email Address:</label>
-            <input type="email" name="email" id="email" placeholder="eg:ahd@gmail.com" required>
-            <br><br>
+<hr>
 
-            <label for="num">Phone No:</label>
-            <input type="tel" name="phone" id="num" placeholder="Enter only Number" pattern="[0-9]{10}" maxlength="10" >
-            <br><br>
+<h2>Contact Information</h2>
 
-            <label for="address">Mailing Address:</label>
-            <br>
-            <textarea name="address" id="address" rows="5" cols="30" placeholder="Street Address, city, state, zip code"></textarea>
+<label>Email:</label>
 
-            <br><hr>
+<input type="email"
+id="email"
+name="email"
+placeholder="example@gmail.com"
+required>
 
-        <h2>Academic Information</h2>   
+<br><br>
 
-            <label for="course">Select Your Course:</label>
-            <select name="course" id="course">choose a course
-                <option value="ME">ME</option>
-                <option value="CSE">CSE</option>
-                <option value="CE">CE</option>
-            </select>
+<label>Phone:</label>
 
-            <h3>Extracurriucular Interest</h3>
+<input type="tel"
+id="num"
+name="phone"
+pattern="[0-9]{10}"
+placeholder="10 Digit Number"
+required>
 
-            <input type="checkbox" name="interest" id="sports" value="sports">
-            <label for="sports">Sports</label> 
-            <br> 
-            
-            <input type="checkbox" name="interest" id="music" value="music">
-            <label for="music">Music & Arts</label> 
-            <br>
+<br><br>
 
-            <input type="checkbox" name="interest" id="technology" value="technology">
-            <label for="technology">Technologyclubs</label> 
-            <br>
+<label>Address:</label>
 
-            <input type="checkbox" name="interest" id="volunteering" value="volunteering">
-            <label for="volunteering">Volunteering</label> 
-            <br><hr>
+<br>
 
-            <h2>Create Your Account</h2>
+<textarea id="address"
+name="address"
+rows="5"
+cols="30"
+placeholder="Street Address"></textarea>
 
-            <label for="password">Create a Password :</label>
-            <input type="password" name="password" id="password">
-            <br><br>
+<hr>
 
-            <label for="security">Security Question:</label>
-            <select name="securityQuestion" id="security">
-                <option value="teacher">What is your Favourite Teacher</option>
-                <option value="pet">What Was Your Faviourite Pet's Name</option>
-                <option value="pesrson">What is your Favourite Person</option>
-            </select>
-            <br><br>
+<h2>Academic Information</h2>
 
-            <label for="password">Security Answer :</label>
-            <input type="text" name="securityAnswer" id="password">
-            <br><br>
+<label>Select Course:</label>
 
-            <input type="checkbox" required>
-            <label for="aggreement">I Agree to The Terms and Condition</label> 
-            <br><hr>
+<select id="course" name="course">
 
-            <button type="submit">Register</button>
-            <button type="reset">Clear Form</button>
-        
-    </form>
-    
-    
+<option value="ME">ME</option>
 
-</table>
+<option value="CSE">CSE</option>
+
+<option value="CE">CE</option>
+
+</select>
+
+<h3>Extracurricular Interest</h3>
+
+<input type="checkbox" name="interest" value="sports"> Sports
+
+<input type="checkbox" name="interest" value="music"> Music & Arts
+
+<input type="checkbox" name="interest" value="technology"> Technology Clubs
+
+<input type="checkbox" name="interest" value="volunteering"> Volunteering
+
+<hr>
+
+<h2>Create Account</h2>
+
+<label>Password:</label>
+
+<input type="password"
+id="password"
+name="password"
+required>
+
+<br><br>
+
+<label>Security Question:</label>
+
+<select id="security"
+name="securityQuestion">
+
+<option>Favourite Teacher?</option>
+
+<option>Favourite Pet?</option>
+
+<option>Favourite Person?</option>
+
+</select>
+
+<br><br>
+
+<label>Security Answer:</label>
+
+<input type="text"
+id="securityAnswer"
+name="securityAnswer"
+required>
+
+<br><br>
+
+<input type="checkbox" required>
+
+I Agree To Terms & Conditions
+
+<hr>
+
+<button type="submit">
+
+Register
+
+</button>
+
+<button type="reset">
+
+Clear
+
+</button>
+
+</form>
+
+<!-- JAVASCRIPT -->
 
 <script>
-document.addEventListener("DOMContentLoaded", function(){
 
-    const form = document.getElementById("registerForm");
+document.addEventListener("DOMContentLoaded",()=>{
 
-    form.addEventListener("submit", async function(e){
-        e.preventDefault();
+const form = document.getElementById("registerForm");
 
-        const student = {
-            firstName: document.getElementById("name").value,
-            lastName: document.getElementById("surname").value,
-            email: document.getElementById("email").value,
-            phone: document.getElementById("num").value,
-            course: document.getElementById("course").value,
-            gender: document.querySelector('input[name="gender"]:checked')?.value || ""
-        };
+form.addEventListener("submit", async(e)=>{
 
-        const response = await fetch("/register", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(student)
-        });
+e.preventDefault();
 
-        const data = await response.json();
-        alert(data.message);
+const gender =
+document.querySelector(
+'input[name="gender"]:checked'
+)?.value || "";
 
-        form.reset();
-    });
+const student = {
+
+firstName:
+document.getElementById("firstname").value,
+
+lastName:
+document.getElementById("surname").value,
+
+email:
+document.getElementById("email").value,
+
+phone:
+document.getElementById("num").value,
+
+course:
+document.getElementById("course").value,
+
+gender: gender
+
+};
+
+try{
+
+const response = await fetch(
+
+"http://localhost:5000/register",   // ⭐ comma add
+
+{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body: JSON.stringify(student)
+
+}
+
+);
+
+const data = await response.json();
+
+alert(data.message || "Registered Successfully");
+
+form.reset();
+
+}catch(error){
+
+console.log(error);
+
+alert("Server Error 😢");
+
+}
 
 });
+
+});
+
 </script>
 
 
 </body>
+
 </html>
